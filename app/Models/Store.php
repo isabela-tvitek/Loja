@@ -31,6 +31,6 @@ class Store extends Model {
     ];
 
     public function products(){
-        return $this->belongsToMany('App\Models\Product', 'stores', 'id', 'id');
+        return $this->hasMany('App\Models\Product', 'store_id');
     }
 }
