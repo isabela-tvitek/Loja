@@ -57,8 +57,8 @@ class StoreController extends Controller {
 
         $store =  Store::find($id);
 
-        $store->name = $request->name;
-        $store->email = $request->email;
+        $store->name = $request['name'];
+        $store->email = $request['email'];
  
         $store->save();
         return response()->json(new StoreResource($store),204);

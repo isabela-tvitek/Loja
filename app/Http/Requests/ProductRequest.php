@@ -7,8 +7,8 @@ use Illuminate\Foundation\Http\FormRequest;
 class ProductRequest extends FormRequest {
     public function rules() {
         return [
-            'name'      => 'required|min:6|max:60',
-            'price'     => 'min:6|max:60|integer',
+            'name'      => 'required|min:3|max:60',
+            'price'     => 'min:2|max:6',
             'store_id'  => 'integer',
             'stock'     => 'integer',
             'active'    => 'boolean'
