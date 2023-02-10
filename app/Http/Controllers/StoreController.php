@@ -14,8 +14,7 @@ class StoreController extends Controller {
      * @return \Illuminate\Http\Response
     */
     public function index() {
-        $stores = Store::with(['products']);
-        $stores = Store::get();
+        $stores = Store::with('products')->get();
         return StoreResource::collection($stores);
     }
 

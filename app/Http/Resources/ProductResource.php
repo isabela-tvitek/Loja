@@ -7,6 +7,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 class ProductResource extends JsonResource {
     public function toArray($request) {
     
+        $stores = $this->whenLoaded('stores');
+
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -15,7 +17,7 @@ class ProductResource extends JsonResource {
             'active' => $this->active,
             'stock' => $this->stock,
             'data' => date_format($this->created_at, 'd/m/Y'),
-            'stores' => StoreResource::collection($this->whenLoaded('stores')),
+            'stores' => new StoreResource($this->stores),
         ];
     }
 }

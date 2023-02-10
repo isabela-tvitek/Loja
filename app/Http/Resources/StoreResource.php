@@ -13,13 +13,11 @@ class StoreResource extends JsonResource {
     */
     public function toArray($request) {
         //return parent::toArray($request);
-        $products = $this->whenLoaded('products');
-
         return [
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-            'products' => new ProductResource($this->products)
+            'products' => ProductResource::collection($this->whenLoaded('products'))
 
         ];
     }
