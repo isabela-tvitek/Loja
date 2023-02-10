@@ -1,4 +1,4 @@
-## Rund the Project
+## Run the Project
 
 Make a Git clone of this repository
 
@@ -8,6 +8,24 @@ Make a Git clone of this repository
 Create a database named shooping
 
 - php artisan migrate
+
+## List of routes
+
+Store:
+  Route                                  Action      Method
+- http://127.0.0.1:8001/api/loja         (index)     Get
+- http://127.0.0.1:8001/api/loja/{id}    (show)      Get
+- http://127.0.0.1:8001/api/loja         (creaate)   Post
+- http://127.0.0.1:8001/api/loja/{id}    (update)    Put
+- http://127.0.0.1:8001/api/loja/{id}    (delete)    Delete
+
+Products:
+  Route                                     Action      Method
+- http://127.0.0.1:8001/api/produto         (index)     Get
+- http://127.0.0.1:8001/api/produto/{id}    (show)      Get
+- http://127.0.0.1:8001/api/produto         (creaate)   Post
+- http://127.0.0.1:8001/api/produto/{id}    (update)    Put
+- http://127.0.0.1:8001/api/produto/{id}    (delete)    Delete
 
 
 
