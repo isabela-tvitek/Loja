@@ -14,8 +14,9 @@ class StoreController extends Controller {
      * @return \Illuminate\Http\Response
     */
     public function index() {
-        $stores = Store::with('products')->get();
-        return StoreResource::collection($stores);
+        $stores = Store::with(['products'])->first();
+
+        return response()->json(StoreResource::collection(Store::all()),200);
     }
 
     /**
@@ -25,7 +26,7 @@ class StoreController extends Controller {
     */
     public function show($id) {
         $store = Store::find($id);
-        return new StoreResource($store);
+        return response()->json(new StoreResource($store),200);
     }
 
     /**
@@ -42,7 +43,7 @@ class StoreController extends Controller {
         ];
     
         $store = Store::create($data);
-        return new StoreResource($store);
+        return response()->json(new StoreResource($store),201);
     }
 
     /**
@@ -60,7 +61,7 @@ class StoreController extends Controller {
         $store->email = $request->email;
  
         $store->save();
-        return new StoreResource($store);
+        return response()->json(new StoreResource($store),204);
     }
 
     /**
@@ -78,6 +79,6 @@ class StoreController extends Controller {
         //force delete
         //$products = Product::where('store_id',$id)->delete();
         //$store->delete();
-        return new StoreResource($store);
+        return response()->json(new StoreResource($store),204);
     }
 }

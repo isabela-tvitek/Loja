@@ -16,8 +16,7 @@ class ProductResource extends JsonResource {
             'store_id' => $this->store_id,
             'active' => $this->active,
             'stock' => $this->stock,
-            'data' => date_format($this->created_at, 'd/m/Y'),
-            'stores' => new StoreResource($this->stores),
+            'data' => date_format($this->created_at, 'd/m/Y')
         ];
     }
 }

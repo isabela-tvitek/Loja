@@ -11,13 +11,13 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller {
 
     public function index() {
-        $products = Product::get();
-        return ProductResource::collection($products);
+        $products = Product::all();
+        return response()->json(ProductResource::collection($products),200);
     }
 
     public function show($id) {
         $product = Product::find($id);
-        return new ProductResource($product);
+        return response()->json(new ProductResource($product),200);
     }
 
     public function store(ProductRequest $request) {
@@ -32,7 +32,8 @@ class ProductController extends Controller {
         ];
     
         $product = Product::create($data);
-        return new ProductResource($product);
+        return response()->json(new ProductResource($product),201);
+
     }
 
     public function update(ProductRequest $request, $id) {
@@ -46,7 +47,7 @@ class ProductController extends Controller {
         $product->stock = $request['stock'];
  
         $product->save();
-        return new ProductResource($product);
+        return response()->json(new ProductResource($product),204);
     }
 
     public function destroy($id) {
@@ -58,6 +59,6 @@ class ProductController extends Controller {
 
         //force delete
         //$product->delete();
-        return new ProductResource($product);
+        return response()->json(new ProductResource($product),204);
     }
 }
