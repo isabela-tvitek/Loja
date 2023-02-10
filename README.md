@@ -2,6 +2,7 @@
 
 Make a Git clone of this repository
 
+- cd loja 
 - composer update 
 - php artisan server
 
