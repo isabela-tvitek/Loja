@@ -10,6 +10,9 @@ Create a database named shooping
 
 - php artisan migrate
 
+## Postman
+- https://app.getpostman.com/join-team?invite_code=6a8721f42d26037a4b4a82db0b007eaf&target_code=d97f5836958735480415543de9b8d684
+
 ## List of routes
 
 Store:
